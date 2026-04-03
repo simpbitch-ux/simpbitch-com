@@ -63,21 +63,19 @@
     .post-arrow { font-size: 1rem; align-self: center; padding-right: 2.5rem; color: var(--gray-2); transition: transform 0.2s; }
     .post:hover .post-arrow { transform: translateX(4px); color: var(--white); }
 
-    .two-col { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--black); }
-    .two-col > * { border-right: 1px solid var(--black); }
-    .two-col > *:last-child { border-right: none; }
-
-    .rules-col { padding: 4rem 3rem; }
-    .rules-col h3 { font-family: 'IM Fell English', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 400; font-style: italic; line-height: 1.15; margin-bottom: 3rem; }
+    /* rules full width */
+    .rules-full { border-bottom: 1px solid var(--black); padding: 4rem 3rem; }
+    .rules-full h3 { font-family: 'IM Fell English', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 400; font-style: italic; line-height: 1.15; margin-bottom: 3rem; }
+    .rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 4rem; }
     .rule-item { display: grid; grid-template-columns: 2.5rem 1fr; gap: 1rem; padding: 1.2rem 0; border-top: 1px solid var(--black); font-size: 0.72rem; line-height: 1.6; }
     .rule-num { color: var(--gray-3); font-size: 0.6rem; padding-top: 0.1rem; }
     .rule-text strong { display: block; font-weight: 500; margin-bottom: 0.2rem; }
     .rule-text span { color: var(--gray-3); }
 
-    .about-col { padding: 4rem 3rem; display: flex; flex-direction: column; justify-content: space-between; }
+    .about-col { padding: 4rem 3rem; display: flex; flex-direction: column; justify-content: space-between; border-bottom: 1px solid var(--black); }
     .about-col h3 { font-family: 'IM Fell English', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 400; font-style: italic; line-height: 1.15; margin-bottom: 2rem; }
-    .about-col p { font-size: 0.78rem; line-height: 1.8; color: var(--gray-4); margin-bottom: 1.2rem; }
-    .tiktok-link { display: inline-flex; align-items: center; gap: 1rem; border: 1px solid var(--black); padding: 1rem 1.5rem; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 2rem; transition: background 0.2s, color 0.2s; }
+    .about-col p { font-size: 0.78rem; line-height: 1.8; color: var(--gray-4); margin-bottom: 1.2rem; max-width: 60ch; }
+    .tiktok-link { display: inline-flex; align-items: center; gap: 1rem; border: 1px solid var(--black); padding: 1rem 1.5rem; font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; margin-top: 2rem; transition: background 0.2s, color 0.2s; width: fit-content; }
     .tiktok-link:hover { background: var(--black); color: var(--white); }
     .tiktok-link::after { content: '↗'; font-size: 0.8rem; }
 
@@ -120,6 +118,9 @@
     .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.visible { opacity: 1; transform: none; }
 
+    @media (max-width: 900px) {
+      .rules-grid { grid-template-columns: 1fr; }
+    }
     @media (max-width: 768px) {
       .nav-left { display: none; }
       nav { grid-template-columns: 1fr auto; }
@@ -128,14 +129,15 @@
       .statement { grid-template-columns: 1fr; }
       .statement-label { border-right: none; border-bottom: 1px solid var(--black); padding: 1.5rem 2rem; }
       .statement-label span { writing-mode: horizontal-tb; transform: none; }
-      .two-col, .subscribe { grid-template-columns: 1fr; }
-      .two-col > *, .subscribe-left { border-right: none; border-bottom: 1px solid var(--black); }
+      .subscribe { grid-template-columns: 1fr; }
+      .subscribe-left { border-right: none; border-bottom: 1px solid var(--black); }
       .receipts { grid-template-columns: 1fr; }
       .receipts .receipt-cell { border-right: none; }
       footer { grid-template-columns: 1fr; }
       .footer-cell:not(:last-child) { border-right: none; border-bottom: 1px solid var(--black); }
       .post { grid-template-columns: 50px 1fr; }
       .post-arrow { display: none; }
+      .rules-full { padding: 3rem 1.5rem; }
     }
   </style>
 </head>
@@ -177,18 +179,18 @@
 
   <div class="ticker-bar">
     <div class="ticker-track">
-      <span class="ticker-item">Fresh flowers twice weekly</span>
-      <span class="ticker-item">Custom jewels: 3 and counting</span>
-      <span class="ticker-item">"yes, whatever you want"</span>
-      <span class="ticker-item">Groceries carried: every single one</span>
-      <span class="ticker-item">New TikTok: this week</span>
-      <span class="ticker-item">Current status: obsessed</span>
-      <span class="ticker-item">Fresh flowers twice weekly</span>
-      <span class="ticker-item">Custom jewels: 3 and counting</span>
-      <span class="ticker-item">"yes, whatever you want"</span>
-      <span class="ticker-item">Groceries carried: every single one</span>
-      <span class="ticker-item">New TikTok: this week</span>
-      <span class="ticker-item">Current status: obsessed</span>
+      <span class="ticker-item">She's the star, I'm the rock</span>
+      <span class="ticker-item">No sass. Ever.</span>
+      <span class="ticker-item">Men should be pure</span>
+      <span class="ticker-item">Live for being called a good boy</span>
+      <span class="ticker-item">Her feelings are your reality</span>
+      <span class="ticker-item">Shoot your one shot as hard as you can</span>
+      <span class="ticker-item">She's the star, I'm the rock</span>
+      <span class="ticker-item">No sass. Ever.</span>
+      <span class="ticker-item">Men should be pure</span>
+      <span class="ticker-item">Live for being called a good boy</span>
+      <span class="ticker-item">Her feelings are your reality</span>
+      <span class="ticker-item">Shoot your one shot as hard as you can</span>
     </div>
   </div>
 
@@ -233,28 +235,56 @@
     </article>
   </div>
 
-  <div class="two-col" id="rules">
-    <div class="rules-col reveal">
-      <div class="section-label" style="padding: 0 0 1.5rem; border: none; margin-bottom: 1.5rem; border-bottom: 1px solid var(--black);"><span>The Rules</span></div>
-      <h3>An unofficial operating system.</h3>
-      <div class="rule-item"><div class="rule-num">I.</div><div class="rule-text"><strong>Her comfort is the baseline.</strong><span>Everything else is logistics.</span></div></div>
-      <div class="rule-item"><div class="rule-num">II.</div><div class="rule-text"><strong>Say yes first, figure it out second.</strong><span>The how is a problem for future me.</span></div></div>
-      <div class="rule-item"><div class="rule-num">III.</div><div class="rule-text"><strong>She doesn't carry bags, boxes, or stress.</strong><span>That's what I'm here for. All three.</span></div></div>
-      <div class="rule-item"><div class="rule-num">IV.</div><div class="rule-text"><strong>Flowers. Twice a week. Non-negotiable.</strong><span>No repeating the same arrangement twice running.</span></div></div>
-      <div class="rule-item"><div class="rule-num">V.</div><div class="rule-text"><strong>When she speaks, that's the direction.</strong><span>Not a suggestion. The direction.</span></div></div>
-      <div class="rule-item"><div class="rule-num">VI.</div><div class="rule-text"><strong>Document everything.</strong><span>The receipts, the moments, the proof of concept.</span></div></div>
-    </div>
+  <!-- RULES — full width two-column grid -->
+  <div class="section-label" id="rules"><span>The Rules</span><span>31 commandments</span></div>
+  <div class="rules-full reveal">
+    <h3>An unofficial operating system.</h3>
+    <div class="rules-grid">
 
-    <div class="about-col reveal">
-      <div>
-        <div class="section-label" style="padding: 0 0 1.5rem; border: none; margin-bottom: 1.5rem; border-bottom: 1px solid var(--black);"><span>About this site</span></div>
-        <h3>MJ Gray's husband, reporting live.</h3>
-        <p>This is not relationship advice. This is not a tutorial. This is one man's honest, public, documented account of what it looks like when you find the right person and decide to make being devoted to them your entire personality.</p>
-        <p>She sets the standard. I meet it. The internet watches. There are TikToks. There are receipts. There is a blog. You are on it.</p>
-        <p>Sub / dom themes. LA setting. Real events. Updated whenever something notable happens — which is daily.</p>
-      </div>
-      <a href="https://tiktok.com" target="_blank" class="tiktok-link">Watch the TikToks</a>
+      <div class="rule-item"><div class="rule-num">I.</div><div class="rule-text"><strong>She's the star. I'm the rock.</strong><span>The dynamic is simple. She shines. I make sure nothing gets in her way.</span></div></div>
+      <div class="rule-item"><div class="rule-num">II.</div><div class="rule-text"><strong>No sass. Ever.</strong><span>Not once. Not even close. This is non-negotiable and it always will be.</span></div></div>
+      <div class="rule-item"><div class="rule-num">III.</div><div class="rule-text"><strong>Pay for everything. Expect nothing in return.</strong><span>100% of her costs. Zero expectation of thanks. That's the deal.</span></div></div>
+      <div class="rule-item"><div class="rule-num">IV.</div><div class="rule-text"><strong>At the gym, eyes on the ground.</strong><span>The only woman worth looking at isn't there. She's home.</span></div></div>
+      <div class="rule-item"><div class="rule-num">V.</div><div class="rule-text"><strong>The phone is clean.</strong><span>Every woman blocked except family and necessary professional contacts. No friendly conversations with women. If she's not in the room, neither is the conversation.</span></div></div>
+      <div class="rule-item"><div class="rule-num">VI.</div><div class="rule-text"><strong>The only touch of a woman is hers.</strong><span>Male-only massages. No exceptions. Her hands are the only ones that count.</span></div></div>
+      <div class="rule-item"><div class="rule-num">VII.</div><div class="rule-text"><strong>No porn. No exceptions.</strong><span>A man who is truly devoted has no use for it.</span></div></div>
+      <div class="rule-item"><div class="rule-num">VIII.</div><div class="rule-text"><strong>She initiates. Always.</strong><span>Permission is part of the protocol. A man serves. That's the whole sentence.</span></div></div>
+      <div class="rule-item"><div class="rule-num">IX.</div><div class="rule-text"><strong>Write love letters. Often.</strong><span>Put it in writing. The pen is a form of accountability.</span></div></div>
+      <div class="rule-item"><div class="rule-num">X.</div><div class="rule-text"><strong>Learn skills valuable to her.</strong><span>Film photography. Cooking. Whatever she needs — develop the skill set to provide it.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XI.</div><div class="rule-text"><strong>Clean, cook, and if you can afford it, hire help.</strong><span>She is never to lift a finger on housework. Not once. Not ever.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XII.</div><div class="rule-text"><strong>Be pure. Work hard. Wait for the right one. Then go all in.</strong><span>Don't mess around. Save your money. Save yourself. Find the love of your life and shoot your one shot as hard as you can.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XIII.</div><div class="rule-text"><strong>Flowers. As often as you can afford.</strong><span>There is no such thing as too many.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XIV.</div><div class="rule-text"><strong>Strip out all cheap dopamine.</strong><span>Remove it until the only real hit comes from her. That's the reprogramming. That's the goal.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XV.</div><div class="rule-text"><strong>Reprogram so buying her things makes you happy.</strong><span>Not obligated. Not transactional. Genuinely, biochemically happy. Rewire accordingly.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XVI.</div><div class="rule-text"><strong>10x rule on spending.</strong><span>If you want to buy something for yourself, spend at least ten times as much on her first. No exceptions.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XVII.</div><div class="rule-text"><strong>Get in shape and stay there.</strong><span>Exercise to be a better man for her. Always be dropping body fat. The body is part of the service.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XVIII.</div><div class="rule-text"><strong>Anyone who disrespects her gets cut off.</strong><span>No negotiations. No second chances. Family, friends, anyone. She is not a topic for debate.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XIX.</div><div class="rule-text"><strong>Ask permission for spooning. Every single night.</strong><span>Not once assumed. Not once taken for granted. Every night, you ask.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XX.</div><div class="rule-text"><strong>Walk the dog. Every time.</strong><span>Her dog. Our dog if you're a really good boy. Either way — your job, your privilege.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XXI.</div><div class="rule-text"><strong>Live for being called a good boy.</strong><span>That's the reward. That's the whole reward. Internalize it completely.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XXII.</div><div class="rule-text"><strong>Be financially responsible. Disposable income goes to her.</strong><span>Not some of it. All of it. Spend on yourself only after the 10x rule is met.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XXIII.</div><div class="rule-text"><strong>Learn her interests. Make them your passions.</strong><span>Not performance. Not pretending. Actually learn. Actually care. It becomes real if you let it.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XXIV.</div><div class="rule-text"><strong>Always listen.</strong><span>Not to respond. Not to fix. To hear. Then hear again.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XXV.</div><div class="rule-text"><strong>Her feelings are your reality.</strong><span>Not something to debate. Not something to manage. Your reality. Full stop.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XXVI.</div><div class="rule-text"><strong>Make the bed. Every day.</strong><span>Without being asked. Without acknowledgment. Just make it.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XXVII.</div><div class="rule-text"><strong>Don't lie. Don't omit.</strong><span>Full transparency, always. A half-truth is a full lie. She deserves the complete version.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XXVIII.</div><div class="rule-text"><strong>Get her an Amex as soon as she'll allow it.</strong><span>Her name on a card backed by your account. The physical form of unconditional support.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XXIX.</div><div class="rule-text"><strong>If her car is unsafe, upgrade it.</strong><span>No debate. No delay. Her safety is not a budget line item.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XXX.</div><div class="rule-text"><strong>Max out her IRAs.</strong><span>Every year. Before anything else. Her financial future is your responsibility too.</span></div></div>
+      <div class="rule-item"><div class="rule-num">XXXI.</div><div class="rule-text"><strong>Your reward is her attention and presence.</strong><span>Not praise. Not public validation. Not external approval. Just her. That's the whole prize. Never seek anything else.</span></div></div>
+
     </div>
+  </div>
+
+  <div class="about-col reveal">
+    <div>
+      <div class="section-label" style="padding: 0 0 1.5rem; border: none; margin-bottom: 1.5rem; border-bottom: 1px solid var(--black);"><span>About this site</span></div>
+      <h3>MJ Gray's husband, reporting live.</h3>
+      <p>This is not relationship advice. This is not a tutorial. This is one man's honest, public, documented account of what it looks like when you find the right person and decide to make being devoted to them your entire personality.</p>
+      <p>She sets the standard. I meet it. The internet watches. There are TikToks. There are receipts. There is a blog. You are on it.</p>
+      <p>Sub / dom themes. LA setting. Real events. Updated whenever something notable happens — which is daily.</p>
+    </div>
+    <a href="https://tiktok.com" target="_blank" class="tiktok-link">Watch the TikToks</a>
   </div>
 
   <div class="manifesto reveal">
